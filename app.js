@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const authRoutes = require('./routes/homeRoutes');
+const authRoutes = require('./routes/authRoutes'); // Use 'signupRoutes' for clarity
+const signupRoutes = require('./routes/signupRoutes');
 
 const app = express();
 
@@ -18,7 +19,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set up routes
-app.use('/', signupRoutes); // Now this correctly uses signupRoutes
+app.use('/', authRoutes); // Now this correctly uses signupRoutes
+app.use('/', signupRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

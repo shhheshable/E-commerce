@@ -1,0 +1,126 @@
+.Signup-panel {
+    max-width: 500px !important; /* Set the maximum width */
+    margin-left: 60%;
+    max-width: 35%; /* Adjust max-width as needed */
+
+    background-color: rgba(255, 255, 255, 0.91) !important;    border-radius: 20px;
+    margin-top: 30px !important;
+    padding: 10px 50px;
+}
+.state-input {
+padding: 0 5px 0 5px;
+}
+.input-group-text {
+  margin-left: 5px;
+}
+.email-input {
+  padding-right: 20px;
+  margin-bottom: 1px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+
+}
+
+body{
+background-image: url(All_images/images.jpg);
+background-size: cover;
+background-position: center center;
+font-family: 'Montserrat';
+
+}
+
+
+.text-center{
+padding: 20px;
+}
+
+
+
+.form-group {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+margin-bottom: 15px;
+}
+
+.Search-bar {
+  max-width: 20%;
+  margin: auto;
+}
+
+.address-input {
+
+margin-right: 10px;
+}
+
+.email-input {
+margin-right: -10px;
+}
+.input-group-text, .address-input{
+margin-left: 10px;
+}
+
+
+
+.form-group input[type="text"],
+.form-group input[type="birthday"],
+.form-group input[type="contact"],
+.form-group input[type="password"] {
+flex: 0 0 48%; /* Adjust width as needed */
+}
+
+.form-floating {
+    font-size: smaller;
+    
+}
+
+
+.btn {
+
+width: 100%;
+
+}
+
+.form-text {
+margin-bottom: -30px;
+font-size: 0.6em;
+width: 90%;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+.form-check
+{
+font-size: 0.8em;
+margin-top: 10px;
+padding-bottom: 20px;
+text-align: center;
+
+}
+
+.form-check.form-switch {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.form-check.form-switch .form-check-input {
+margin-right: 5px; /* Adjust spacing between checkbox and label */
+}
+
+.alert {
+  max-width: 100%;
+}
+
+.alert-mess {
+  font-size: smaller;
+  display: flex;
+  align-items: center;
+}
+

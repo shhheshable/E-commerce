@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="/styles/cart.css">
+</head>
+<body>
+    <h1>Your Shopping Cart</h1>
+    
+    <% if (cartItems.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% cartItems.forEach(item => { %>
+                    <tr>
+                        <td><%= item.product.name %></td>
+                        <td>
+                            <form action="/cart/update/<%= item.id %>" method="POST">
+                                <input type="number" name="quantity" value="<%= item.quantity %>" min="1">
+                                <button type="submit">Update</button>
+                            </form>
+                        </td>
+                        <td>$<%= item.product.price * item.quantity %></td>
+                        <td>
+                            <form action="/cart/remove/<%= item.id %>" method="POST">
+                                <button type="submit">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <h3>Total: $<%= cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0) %></h3>
+        <a href="/checkout">Proceed to Checkout</a>
+    <% } else { %>
+        <p>Your cart is empty.</p>
+    <% } %>
+</body>
+</html>

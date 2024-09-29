@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Iwahig Home Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.3.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../../../css/homedesign.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    
+</head>
+<body>
+
+    <header>
+        <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+            <div class="container space justify-content-around">
+                <a class="navbar-brand" href="#">
+                    <img src="All_Images/Mylogo.png" width="auto" height="55" alt="Logo"/>Iwahig Crafts
+                </a>
+
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="item-collapse navbar-collapse justify-content-around" id="collapsibleNavId">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="CartId">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" aria-current="page" id="ShopId">Shop<span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="AboutusId">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="item-collapse navbar-collapse justify-content-around" id="collapsibleNavId">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.php" id="CartId">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="order.php" id="CartId">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="account.php" id="CartId">Account</a>
+                        </li>
+                        <form method="post" action="logout.php" id="logoutForm">
+                            <li class="nav-item">
+                                <button href="logout.php" type="submit" name="logout" class="nav-link" id="Logout">Logout</button>
+                            </li>
+                        </form>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <article>
+        <div id="carouselExampleInterval" class="carousel slide carousel-dark" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="All_images/images.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="All_images/images.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="All_images/images.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </article>
+
+    <div class="Product-nav space mb-5 justify-content-center" style="border: none; border-bottom: 2px solid rgba(128, 128, 128, 0.252);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="Explore-title mb-3">
+                        <h2 class="E-title" style="font-weight: light; max-height: 50px;">Explore our product.</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="Explore-para mb-5">
+                        <p class="P-title" style="font-weight: 300; font-size: 1rem; color: gray;">Choose from a diverse menu featuring a detectable array of dishes crafted with the finest ingredients and culinary expertise. Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Alert-modal-success">
+        <div class="Alert-success" id="alertSuccess" 
+                    style="display: none; 
+                    max-width: 50%;
+                    align-items: center;
+                    justify-content: center;
+                    position: fixed;
+                    top: 9%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 1000;">
+            <div class="success-mess" id="success-mess" name="success-mess">
+                <div class="alert justify-content-center alert-success" role="alert">
+                    <div class="d-flex justify-content-center">
+                        <div class="alert-mess">
+                            Successfully added to cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="Card-Product" id="Shop">
+            <div class="Product-row row row-cols-1 row-cols-md-4 row-cols-sm-2 g-5 justify-content-between space">
+                <div class="col">
+                    <div class="card shadow" style="width: 15rem; height: auto;">
+                        <img src="data:image/jpeg;base64," class="Product-Image card-img-top" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <div class="card-body">
+                            <span class="stars float-end">
+                                <span class="fa fa-star checked" style="color: orange;"></span>
+                                <span class="fa fa-star checked" style="color: orange;"></span>
+                                <span class="fa fa-star checked" style="color: orange;"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </span>
+                            <h5 class="Product-name card-title" style="width: 50%; font-weight: bold;">Product Name</h5>
+                            <p class="Product-price card-text" style="font-size: 1.1rem; color: #ff8400;">$Price</p>
+                            <div class="Product-id-hidden">
+                                <button type="button" class="btn btn-primary addToCart" data-product-id="">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.addToCart').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Get the Product_ID and Client_ID
+                    const productId = this.getAttribute('data-product-id');
+                    const clientId = ''; // Assuming client ID will be set here
+
+                    // Send AJAX request to update cart
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'home.php'); // Change the URL to your PHP script
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            // Handle success
+                            console.log(xhr.responseText); // Log the response for debugging
+                            // Display the success message
+                            const alertSuccess = document.getElementById('alertSuccess');
+                            alertSuccess.style.display = 'block';
+                            // Hide the success message after 3 seconds
+                            setTimeout(() => {
+                                alertSuccess.style.display = 'none';
+                            }, 3000);
+                        } else {
+                            // Handle errors
+                            console.error('Error:', xhr.statusText);
+                        }
+                    };
+                    xhr.onerror = function() {
+                        // Handle network errors
+                        console.error('Request failed');
+                    };
+                    xhr.send('product_id=' + encodeURIComponent(productId) + '&client_id=' + encodeURIComponent(clientId));
+                });
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-QFgFiq+ay/VxIuxWlCtONg1aDlOHqCkT78f9S5hDoMupPbNIvO/u4czcU3IyAY6g" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-tIY4UzFiWycHAydquHJvoWYO33pbbJ6Cp8uVwhHcj3ibxWjjsmWzJz/jfBlfl4z" crossorigin="anonymous"></script>
+
+</body>
+</html>

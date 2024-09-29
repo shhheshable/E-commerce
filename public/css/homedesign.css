@@ -1,0 +1,161 @@
+New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give you first-letters navigation
+homedesign.css
+:root {
+    --color-primary: #ff8400;
+    --color-logo: #309e9e;
+    --color-danger: #ff0060;
+    --color-success: #1b9c85;
+    --color-warning: #1ae7e7;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f2f2f2;
+  }
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: none;
+    background-color: #6e636307;
+    font-family: 'Montserrat';
+
+}
+
+.card {
+    border: 1px solid #cccccce1;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 250px;
+    min-width: auto;
+    
+}
+
+.carousel .btn {
+    margin: 5%;
+}
+
+
+img{
+    border-radius: 5px;
+
+}
+
+.card-img-top {
+    max-width: auto;
+    max-height: 200px;
+    min-height: 200px; /* Default height */
+}
+
+.card-title {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    overflow-wrap: break-word;
+    
+}
+
+.card-text {
+    color: #1a1616;
+    font-size: 0.9rem;
+    font-weight: 700;
+    
+}
+
+.text-body-secondary{
+    font-size: 0.7em;
+}
+
+
+
+.navbar {
+    padding: 1px 5%;
+    border-radius: 15px;
+    
+}
+
+.space {
+    margin-right: 8%;
+    margin-left: 8%;
+    display: flex;
+    
+}
+
+
+
+article {
+    margin-top: 5.6%;
+    margin-bottom: 3%;
+}
+
+.carousel-item img {
+    max-height: 500px; /* Adjust the max-height value as needed */
+    width: auto; /* Ensures the image's width adjusts proportionally */
+    border-radius: 25px;
+}
+
+.carousel-item{
+    padding: 0 10%;
+}
+
+.text-white {
+    font-size: 0.8em;
+}
+
+footer {
+    margin-top: 5%;
+}
+
+.Product-row .col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+.card {
+   width: 100%; /* Full width for small screens */
+    
+}
+.card-img-top {
+    height: auto; /* Auto height for small screens */
+    max-width: 100%; /* Max width for small screens */
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+.card-body {
+font-size: 0.8em; /* Decrease font size for small screens */
+}
+.card-title {
+font-size: small; /* Adjust font size of the title */
+}
+.card-text{
+font-size: small;
+}
+.card {
+margin-top: 30%;
+width: 100%;
+}
+.card-body {
+padding: 5px 7px;
+}
+.card-img-top {
+height: auto; /* Auto height for small screens */
+max-width: 100%; /* Max width for small screens */
+}
+.btn {
+padding: 2px;
+
+font-size: xx-small;
+}
+}
+
+.checked {
+    color: orange;
+}

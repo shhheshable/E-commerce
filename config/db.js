@@ -4,12 +4,15 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'ecommerce_db'
+    database: ''
 });
 
 db.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to MySQL Database');
+    if (err) {
+        console.error('Error connecting to the MySQL database:', err);
+        return;
+    }
+    console.log('Connected to the MySQL database successfully!');
 });
 
 module.exports = db;

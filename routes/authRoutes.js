@@ -12,6 +12,11 @@ router.get('/', (req, res) => {
     res.redirect('/login'); // Redirect to the login page
 });
 
+// Route for Signup Page
+router.get('/signup', (req, res) => {
+    res.render('user/signup');
+});
+
 router.post('/login', authController.logs);
 
 router.get('/home', (req, res) => {

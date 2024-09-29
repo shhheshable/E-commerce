@@ -17,6 +17,11 @@ router.get('/signup', (req, res) => {
     res.render('user/signup');
 });
 
+router.post('/login', authController.logs);
+
+router.get('/home', (req, res) => {
+    res.render('user/home');
+})
 // You can add more routes here for authentication logic, etc.
 
 module.exports = router;

@@ -1,18 +1,13 @@
+// routes/signupRoutes.js
 const express = require('express');
 const router = express.Router();
-const signupController = ('../controllers/signupController')
+const signupController = require('../controllers/signupController'); // Ensure this path is correct
 
-//display the signup form
+// Define the route for registration
+router.post('/Register', signupController.registerUser); // Make sure registerUser is correctly defined in your controller
 
-router.get('/signup', (req, res) => {
-    res.render('user/signup');
-});
-
-// Route for the root URL
 router.get('/', (req, res) => {
-    res.redirect('/signup'); // Redirect to the login page
+    res.render('user/signup'); // Make sure this matches your EJS file location
 });
-
-// You can add more routes here for authentication logic, etc.
 
 module.exports = router;

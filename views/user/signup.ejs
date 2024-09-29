@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="/css/userSignupStyle.css" rel="stylesheet">
+    <title>Registration Form</title>
+
+    <style>
+        /* Custom CSS */
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Header content -->
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <form class="Signup-panel" method="post" action="">
+
+                <!-- Success message -->
+                <div class="success-mess" id="success-mess" name="success-mess" style="display: none;">
+                    <div class="alert justify-content-center alert-success" role="alert">
+                        <div class="d-flex justify-content-center">
+                            <div class="alert-mess">
+                                Ikaw ay ngayon nakarehistro na.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error message -->
+                <div class="invalid-mess" id="invalid-mess" name="invalid-mess" style="display: none;">
+                    <div class="alert justify-content-center alert-danger" role="alert">
+                        <div class="d-flex justify-content-center">
+                            <div class="alert-mess">Mali</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="text-center">Pagpaparehistro</h4>
+
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Pangalan" required>
+                            <label for="firstname">Pangalan</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Apelyido" required>
+                            <label for="lastname">Apelyido</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div class="form-floating mb-2">
+                            <input type="date" class="form-control" id="birthdate" name="birthdate" placeholder="Kaarawan" required>
+                            <label for="birthdate">Kaarawan</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="contact" name="contact" placeholder="Kontak" required>
+                            <label for="contact">Kontak</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="state-input form-floating form-group">
+                        <input type="text" class="form-control" id="state" name="state" placeholder="Estado" required>
+                        <label for="state">Estado</label>
+                    </div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="Lungsod" required>
+                            <label for="city">Lungsod</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Zip" required>
+                            <label for="zip">Zip</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="email-input input-group mb-2 mt-0">
+                        <label for="validationTooltipUsername" class="form-label"></label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="email">@</span>
+                            <input type="email" name="email" class="email-form form-control" id="validationTooltipUsername" placeholder="Email" aria-describedby="email" pattern=".*@.*" required>
+                            <div class="invalid-tooltip">
+                                Mangyaring maglagay ng wastong email address.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="register_password" name="register_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Dapat mayaman lamang ng isa't kalahating numero at isang malaking titik at maliit na titik, at kahit 8 o higit pang mga character" required>
+                            <label for="register_password">Password</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="Conpassword" name="Conpassword" placeholder="Kumpirmahin ang Password" required>
+                            <label for="Conpassword">Kumpirmahin ang Password</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="passwordHelpBlock" class="form-text">
+                    Ang iyong password ay dapat na 8-20 character haba, naglalaman ng mga titik at numero, at hindi dapat naglalaman ng espasyo, espesyal na mga character, o emoji.
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" id="submit" name="Register" value="Magparehistro" class="btn btn-primary mt-5">
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Sumang-ayon sa mga tuntunin at kundisyon
+                    </label>
+                    <div class="invalid-feedback">
+                        Dapat mong pumayag bago magsumite.
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>

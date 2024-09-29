@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const admin = require('./routes/admin');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set up routes
-app.use('/', admin);
+app.use('/', authRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

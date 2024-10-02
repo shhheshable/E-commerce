@@ -1,5 +1,6 @@
 // models/signupModel.js
 const db = require('../config/db'); // Import the database connection
+const crypto = require('crypto');
 
 // Function to create a new user
 exports.createUser = (userData, callback) => {
@@ -20,14 +21,16 @@ exports.createUser = (userData, callback) => {
         if (results.length > 0) {
             return callback(new Error('Email already exists'));
         }
+        
+        const token = crypto.randomBytes(32).toString('hex');
 
         // If email doesn't exist, insert user account into tblaccounts
         const sqlAccount = `
-            INSERT INTO tblaccounts (email, password)
-            VALUES (?, ?)
+            INSERT INTO tblaccounts (email, password, token)
+            VALUES (?, ?, ?)
         `;
 
-        db.query(sqlAccount, [userData.email, userData.password], (err, accountResult) => {
+        db.query(sqlAccount, [userData.email, userData.password, token], (err, accountResult) => {
             if (err) {
                 return callback(err);
             }
@@ -48,7 +51,7 @@ exports.createUser = (userData, callback) => {
                     if (err) {
                         return callback(err);
                     }
-                    callback(null, result); // Success
+                    callback(null, result);
                 }
             );
         });

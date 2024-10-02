@@ -12,8 +12,11 @@ const logs = (req, res) => {
 
         // Check the result for success or failure
         if (result.success) {
+            // Store the token in the session
+            req.session.userToken = result.token; // Store the token in the session
+
             // If the login is successful, redirect to the home page
-            return res.redirect('/home');
+            return res.redirect(`/home?${result.token}`);
         } else {
             // If the login fails (either invalid email or wrong password), redirect to login
             console.log(result.message); // Log the failure message
@@ -21,5 +24,7 @@ const logs = (req, res) => {
         }
     });
 };
+
+
 
 module.exports = { logs };

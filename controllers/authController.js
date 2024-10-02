@@ -3,6 +3,7 @@ const login = require('../models/loginModel');
 const home = require('../models/homeModel');
 
 
+
 const logs = (req, res) => {
     const EmailAdd = req.body.email;
     const Pass = req.body.password;

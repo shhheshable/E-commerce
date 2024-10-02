@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
+const logout = require('../controllers/logoutController');
 
 // Route to display the login page
 router.get('/login', (req, res) => {
@@ -24,6 +25,7 @@ router.get('/home', (req, res) => {
 })
 // You can add more routes here for authentication logic, etc.
 
+router.post('/logout', logout.logout); // Handle logout
 
 
 module.exports = router;

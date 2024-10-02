@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 exports.loginAcc = ({ EmailAdd, Pass }, callback) => {
     // First query the email to see if it exists in the database
-    const emailQuery = 'SELECT email, password FROM tblaccounts WHERE email = ?';
+    const emailQuery = 'SELECT email, password, token FROM tblaccounts WHERE email = ?'; // Include token in the query
 
     // Execute the query to check if the email exists
     db.query(emailQuery, [EmailAdd], (err, results) => {
@@ -20,9 +20,9 @@ exports.loginAcc = ({ EmailAdd, Pass }, callback) => {
 
         // Compare the provided password with the stored password
         if (user.password === Pass) {
-            // If the password matches, log true
+            // If the password matches, log true and return the token
             console.log('true');  // Password matches
-            return callback(null, { success: true, message: 'Login successful' });
+            return callback(null, { success: true, message: 'Login successful', token: user.token }); // Return token
         } else {
             // If the password doesn't match, log false
             console.log('false password'); // Password does not match

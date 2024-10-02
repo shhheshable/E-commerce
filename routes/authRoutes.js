@@ -24,4 +24,9 @@ router.get('/home', (req, res) => {
 })
 // You can add more routes here for authentication logic, etc.
 
+router.get('/blala', (req, res) => {
+    const userToken = req.session.userToken; // Access token from session
+    res.render('user/blala', { token: userToken }); // Pass token to the view
+});
+
 module.exports = router;

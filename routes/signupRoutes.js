@@ -10,4 +10,8 @@ router.get('/', (req, res) => {
     res.render('user/signup'); // Make sure this matches your EJS file location
 });
 
+router.get('/login', (req, res) => {
+    res.render('user/login');
+});
+
 module.exports = router;

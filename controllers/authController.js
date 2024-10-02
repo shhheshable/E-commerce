@@ -1,5 +1,8 @@
 const path = require('path');
 const login = require('../models/loginModel');
+const home = require('../models/homeModel');
+
+
 
 const logs = (req, res) => {
     const EmailAdd = req.body.email;
@@ -13,8 +16,8 @@ const logs = (req, res) => {
         // Check the result for success or failure
         if (result.success) {
             // Store the token in the session
-            req.session.userToken = result.token; // Store the token in the session
-
+             // Store the token in the session
+             req.session.userToken = result.token;
             // If the login is successful, redirect to the home page
             return res.redirect(`/home?${result.token}`);
         } else {
@@ -24,6 +27,7 @@ const logs = (req, res) => {
         }
     });
 };
+
 
 
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
+const logout = require('../controllers/logoutController');
 
 // Route to display the login page
 router.get('/login', (req, res) => {
@@ -24,9 +25,7 @@ router.get('/home', (req, res) => {
 })
 // You can add more routes here for authentication logic, etc.
 
-router.get('/blala', (req, res) => {
-    const userToken = req.session.userToken; // Access token from session
-    res.render('user/blala', { token: userToken }); // Pass token to the view
-});
+router.post('/logout', logout.logout); // Handle logout
+
 
 module.exports = router;

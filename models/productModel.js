@@ -13,3 +13,14 @@ exports.addProduct = (productData, productImage, callback) => {
         callback(null, results); // Pass the results if successful
     });
 };
+
+///////////////
+exports.getAllProducts = (callback) => {
+    const query = 'SELECT * FROM tblProducts'; // Ensure this query is correct
+    db.query(query, (err, results) => {
+        if (err) {
+            return callback(err);
+        }
+        callback(null, results);
+    });
+};

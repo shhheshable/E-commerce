@@ -15,3 +15,16 @@ exports.addProduct = (req, res) => {
         res.send('Product added successfully'); // Respond with success message
     });
 };
+
+
+/////////////////
+
+// Fetch all products
+exports.getProducts = (req, res) => {
+    productModel.getAllProducts((err, products) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error fetching products.' });
+        }
+        res.json(products); // Send the products as JSON
+    });
+};

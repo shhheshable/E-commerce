@@ -137,6 +137,10 @@
 
     <!-- JavaScript to handle the modals and AJAX requests -->
     <script>
+
+        
+
+
         $(document).ready(function () {
             // Save product event listener
             $('#saveProduct').click(function () {
@@ -160,7 +164,47 @@
                 });
             });
         });
+
+        
+
+        
+        
     </script>
+
+    <script>
+        $(document).ready(function () {
+            // Initialize DataTable
+            const productTable = $('#productTable').DataTable({
+                ajax: {
+                    url: '/products', // Make sure this matches your route
+                    dataSrc: '' // No nested data structure
+                },
+                columns: [
+                    { data: 'id' }, // Ensure this matches your column names
+                    { data: 'product_name' },
+                    { data: 'quantity' },
+                    { data: 'price' },
+                    {
+                        data: 'images_path', // Assuming this contains the filename
+                        render: function(data) {
+                            // Return the full path for the image
+                            return `<img src="/src/images/${data}" alt="Product Image" class="img-thumbnail" style="width: 100px; height: auto;">`;
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function() {
+                            return '<button class="btn btn-info edit-product">Edit</button>'; // Add your edit button logic here
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+    
+    
+
+    
     
 </body>
 </html>

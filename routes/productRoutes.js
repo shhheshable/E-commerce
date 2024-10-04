@@ -23,4 +23,7 @@ router.get('/AdminMngProduct', (req, res) => {
     res.render('admin/AdminMngProduct', { token: req.session.userToken });
 });
 
+//////////////////// Route to get all products
+router.get('/products', productController.getProducts); 
+
 module.exports = router;

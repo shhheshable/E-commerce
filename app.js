@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes'); // Use 'signupRoutes' for clarity
 const signupRoutes = require('./routes/signupRoutes');
 const homeRoutes = require('./routes/homeRoutes');
+const productRoutes = require('./routes/productRoutes')
 
 const app = express();
 const session = require('express-session');
@@ -35,6 +36,9 @@ app.use((req, res, next) => {
 // Define the views directory (where your .ejs files are located)
 app.set('views', path.join(__dirname, 'views')); 
 
+app.use('/src/images', express.static(path.join(__dirname, 'src/images')));
+
+
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 
@@ -50,6 +54,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', authRoutes); // Now this correctly uses signupRoutes
 app.use('/', signupRoutes);
 app.use('/', homeRoutes);
+app.use('/', productRoutes);
 
 
 

@@ -27,6 +27,6 @@ exports.registerUser = (req, res) => {
         }
 
         // On successful registration, render success message or redirect
-        res.redirect('/success');
+        res.redirect('/login');
     });
 };

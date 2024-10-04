@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 exports.loginAcc = ({ EmailAdd, Pass }, callback) => {
     // First query the email to see if it exists in the database
-    const emailQuery = 'SELECT email, password, token FROM tblaccounts WHERE email = ?'; // Include token in the query
+    const emailQuery = 'SELECT email, password, token, role FROM tblaccounts WHERE email = ?'; // Include role in the query
 
     // Execute the query to check if the email exists
     db.query(emailQuery, [EmailAdd], (err, results) => {
@@ -22,7 +22,22 @@ exports.loginAcc = ({ EmailAdd, Pass }, callback) => {
         if (user.password === Pass) {
             // If the password matches, log true and return the token
             console.log('true');  // Password matches
-            return callback(null, { success: true, message: 'Login successful', token: user.token }); // Return token
+
+            // Check the role
+            if (user.role === 'admin') {
+                // If the user is an admin, log that and return the admin role
+                console.log('User is an admin');
+                return callback(null, { success: true, message: 'Login successful (Admin)', role: 'admin', token: user.token });
+            } else if (user.role === 'user') {
+                // If the user is a regular user, log that and return the user role
+                console.log('User is a regular user');
+                return callback(null, { success: true, message: 'Login successful (User)', role: 'user', token: user.token });
+            } else {
+                // If the role is something else, handle it accordingly
+                console.log('Unknown role');
+                return callback(null, { success: true, message: 'Login successful (Unknown role)', role: user.role, token: user.token });
+            }
+
         } else {
             // If the password doesn't match, log false
             console.log('false password'); // Password does not match

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Product Form</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat';
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <p>Your token is: <strong><%= token %></strong></p>
+        <div class="container mt-5">
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#AddProductModal">Add New Product</button>
+            <table id="productTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th class="Action-Header justify-content-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Products will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+    <!-- View Product Image Modal -->
+    <div class="modal fade" id="ViewProductImg" tabindex="-1" aria-labelledby="ViewProductImgLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ModalLabel">Product Image</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="productImage" src="" alt="Product Image" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="EditProduct" tabindex="-1" aria-labelledby="EditProductLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="EditProductLabel">Edit Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm">
+                        <input type="hidden" id="editProductId" name="product_id">
+                        <div class="mb-3">
+                            <label for="editProductName" class="form-label">Product Name</label>
+                            <input type="text" class="form-control" id="editProductName" name="product_name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editProductQuantity" class="form-label">Product Quantity</label>
+                            <input type="number" class="form-control" id="editProductQuantity" name="product_quantity">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editProductPrice" class="form-label">Product Price</label>
+                            <input type="number" class="form-control" id="editProductPrice" name="product_price">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editProductDescription" class="form-label">Product Description</label>
+                            <textarea class="form-control" id="editProductDescription" name="product_description"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveProductEdit">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Add Product Modal -->
+<div class="modal fade" id="AddProductModal" tabindex="-1" aria-labelledby="AddProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="AddProductModalLabel">Add New Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="mb-3">
+                        <label for="productName" class="form-label">Product Name</label>
+                        <input type="text" class="form-control" id="productName" name="productName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="price" name="price" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productImage" class="form-label">Product Image</label>
+                        <input type="file" class="form-control" id="productImage" name="productImage" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveProduct">Save Product</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- JavaScript to handle the modals and AJAX requests -->
+    <script>
+
+        
+
+
+        $(document).ready(function () {
+            // Save product event listener
+            $('#saveProduct').click(function () {
+                const formData = new FormData($('#addProductForm')[0]); // Get the form data, including file upload
+    
+                $.ajax({
+                    url: '/addProduct', // Backend endpoint to handle adding product
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false, // Prevent jQuery from processing the data
+                    success: function (response) {
+                        alert(response); // Show success message
+                        $('#AddProductModal').modal('hide'); // Close the modal
+                        $('#addProductForm')[0].reset(); // Reset the form
+                    },
+                    error: function (error) {
+                        console.error('Error adding product:', error);
+                        alert('Error adding product');
+                    }
+                });
+            });
+        });
+
+        
+
+        
+        
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Initialize DataTable
+            const productTable = $('#productTable').DataTable({
+                ajax: {
+                    url: '/products', // Make sure this matches your route
+                    dataSrc: '' // No nested data structure
+                },
+                columns: [
+                    { data: 'id' }, // Ensure this matches your column names
+                    { data: 'product_name' },
+                    { data: 'quantity' },
+                    { data: 'price' },
+                    {
+                        data: 'images_path', // Assuming this contains the filename
+                        render: function(data) {
+                            // Return the full path for the image
+                            return `<img src="/src/images/${data}" alt="Product Image" class="img-thumbnail" style="width: 100px; height: auto;">`;
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function() {
+                            return '<button class="btn btn-info edit-product">Edit</button>'; // Add your edit button logic here
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+    
+    
+
+    
+    
+</body>
+</html>

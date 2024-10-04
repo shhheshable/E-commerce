@@ -23,6 +23,12 @@ router.post('/login', authController.logs);
 router.get('/home', (req, res) => {
     res.render('user/home');
 })
+
+router.get('/dashboard', (req, res) => {
+    res.render('admin/dashboard');
+})
+
+
 // You can add more routes here for authentication logic, etc.
 
 router.post('/logout', logout.logout); // Handle logout

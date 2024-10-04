@@ -138,54 +138,10 @@
     <!-- JavaScript to handle the modals and AJAX requests -->
     <script>
         $(document).ready(function () {
-            // Initialize DataTable
-            const productTable = $('#productTable').DataTable({
-                ajax: {
-                    url: '/products', // Endpoint to fetch products
-                    dataSrc: '' // No nested data structure
-                },
-                columns: [
-                    { data: 'id' },
-                    { data: 'product_name' },
-                    { data: 'quantity' },
-                    { data: 'price' },
-                    {
-                        data: 'images_path',
-                        render: function(data) {
-                            return `<img src="${data}" alt="Product Image" class="img-thumbnail" style="width: 100px; height: auto;">`;
-                        }
-                    },
-                    {
-                        data: null,
-                        render: function() {
-                            return '<button class="btn btn-info edit-product">Edit</button>';
-                        }
-                    }
-                ]
-            });
-
-            // Fetch and display products on page load
-            function fetchProducts() {
-                $.ajax({
-                    url: '/products',
-                    method: 'GET',
-                    success: function(data) {
-                        productTable.clear().rows.add(data).draw(); // Update DataTable with fetched products
-                    },
-                    error: function(err) {
-                        console.error('Error fetching products:', err);
-                    }
-                });
-            }
-
-            fetchProducts(); // Call the function to fetch products
-        });
-
-        $(document).ready(function () {
             // Save product event listener
             $('#saveProduct').click(function () {
                 const formData = new FormData($('#addProductForm')[0]); // Get the form data, including file upload
-        
+    
                 $.ajax({
                     url: '/addProduct', // Backend endpoint to handle adding product
                     type: 'POST',
@@ -196,7 +152,6 @@
                         alert(response); // Show success message
                         $('#AddProductModal').modal('hide'); // Close the modal
                         $('#addProductForm')[0].reset(); // Reset the form
-                        $('#productTable').DataTable().ajax.reload(); // Reload the DataTable to reflect new product
                     },
                     error: function (error) {
                         console.error('Error adding product:', error);
@@ -205,7 +160,7 @@
                 });
             });
         });
-        
     </script>
+    
 </body>
 </html>

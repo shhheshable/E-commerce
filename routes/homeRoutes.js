@@ -10,7 +10,7 @@ router.get('/home', (req, res) => {
 router.post('/login', homeController.logs);
 
 router.get('/blala', (req, res) => {
-    const userToken = req.session.userToken; // Access token from session
+    const userToken = req.query.token || req.session.userToken;
     res.render('user/blala', { token: userToken }); // Pass token to the view
 });
 

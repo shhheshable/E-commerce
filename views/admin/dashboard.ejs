@@ -34,13 +34,13 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="AdminDashboardMain.php" class="sidebar-link">
+                    <a href="/dashboard.ejs"  class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link" onclick="loadPage('AdminMngOrders.php')">
+                    <a href="#" class="sidebar-link" onclick="loadPage('/AdminMngOrder?<%= userToken %>')">
                         <i class="lni lni-agenda"></i>
                         <span>Orders</span>
                     </a>
@@ -51,31 +51,34 @@
                         <i class="lni lni-protection"></i>
                         <span>Management</span>
                     </a>
+
+
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
                             <a href="#" onclick="loadPage('/AdminMngProduct?<%= userToken %>')" class="sidebar-link">Products</a>
 
-                            
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link" onclick="loadPage('AdminMngAccounts.php')">Accounts</a>
+                            <a href="#" onclick="loadPage('/AdminMngAcc?<%= userToken %>')" class="sidebar-link">Accounts</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link" onclick="loadPage('AdminNotification.php')">
+                    <a href="#" class="sidebar-link" oonclick="loadPage('/Notification?<%= userToken %>')">
                         <i class="lni lni-popup"></i>
                         <span>Notification</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link" onclick="loadPage('AdminAccount.php')">
+                    <a href="#" class="sidebar-link" onclick="loadPage('/AdminAccount?<%= userToken %>')">
                         <i class="lni lni-cog"></i>
                         <span>Account Setting</span>
                     </a>
                 </li>
             </ul>
+
+            
             <div class="sidebar-footer">
                 <a href="logout.php" id="Logout" class="sidebar-link">
                     <i class="lni lni-exit"></i>

@@ -5,6 +5,7 @@ const authRoutes = require('./routes/authRoutes'); // Use 'signupRoutes' for cla
 const signupRoutes = require('./routes/signupRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const productRoutes = require('./routes/productRoutes')
+const accsRoutes = require('./routes/accsRoutes');
 
 const app = express();
 const session = require('express-session');
@@ -55,6 +56,7 @@ app.use('/', authRoutes); // Now this correctly uses signupRoutes
 app.use('/', signupRoutes);
 app.use('/', homeRoutes);
 app.use('/', productRoutes);
+app.use('/', accsRoutes);
 
 
 

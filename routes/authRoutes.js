@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
 const logout = require('../controllers/logoutController');
+const homeController = require('../controllers/homeController'); // Use this for home page
 
 // Route to display the login page
 router.get('/login', (req, res) => {
@@ -18,22 +19,18 @@ router.get('/signup', (req, res) => {
     res.render('user/signup');
 });
 
+// Handle login
 router.post('/login', authController.logs);
 
-router.get('/home', (req, res) => {
-    res.render('user/home');
-})
+// Route to display home page and fetch products
+router.get('/home', homeController.renderHomePage); // Ensure this calls the controller method
 
+// Route for the admin dashboard
 router.get('/dashboard', (req, res) => {
     res.render('admin/dashboard');
-})
+});
 
-
-// You can add more routes here for authentication logic, etc.
-
+// Handle logout
 router.post('/logout', logout.logout); // Handle logout
 
-
 module.exports = router;
-
-

@@ -40,8 +40,8 @@ exports.createUser = (userData, callback) => {
 
             // Insert user data into tbluser, including contact information
             const sqlUser = `
-                INSERT INTO tbluser (acc_id, name, birthdate, profile, address, contact)
-                VALUES (?, ?, ?, NULL, ?, ?)
+                INSERT INTO tbluser (acc_id, name, birthdate, address, contact)
+                VALUES (?, ?, ?, ?, ?)
             `;
 
             db.query(

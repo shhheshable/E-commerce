@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "cart",
+=======
+  "name": "e-commerce",
+>>>>>>> origin/Glesie-Maranan
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -15,7 +19,10 @@
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "multer": "^1.4.5-lts.1",
+<<<<<<< HEAD
     "mysql2": "^3.11.3",
+=======
+>>>>>>> origin/Glesie-Maranan
     "nodemon": "^3.1.7"
   }
 }

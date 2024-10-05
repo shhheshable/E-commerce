@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <div class="container">
+        <% if (cartItems && cartItems.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% cartItems.forEach(item => { %>
+                        <tr>
+                            <td><img src="<%= item.Picture %>" alt="<%= item.ProductName %>" style="width: 50px; height: auto;"></td>
+                            <td><%= item.ProductName %></td>
+                            <td>$<%= parseFloat(item.Price).toFixed(2) %></td>
+                            <td><%= item.Quantity %></td>
+                            <td>$<%= (parseFloat(item.Price) * item.Quantity).toFixed(2) %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <button>Confirm Purchase</button>
+        <% } else { %>
+            <p>No items selected for checkout.</p>
+        <% } %>
+    </div>
+</body>
+</html>

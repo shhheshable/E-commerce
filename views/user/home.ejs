@@ -96,7 +96,7 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="Explore-para mb-5">
-                        <p class="P-title" style="font-weight: 300; font-size: 1rem; color: gray;">Explore our exclusive collection of shoes, where style meets comfort—perfect for every occasion, available now in our online store!</p>
+                        <p class="P-title" style="font-weight: 300; font-size: 1rem; color: gray;">Choose from a diverse menu featuring a detectable array of dishes crafted with the finest ingredients and culinary expertise. Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.</p>
                     </div>
                 </div>
             </div>
@@ -129,33 +129,70 @@
     <main>
         <div class="Card-Product" id="Shop">
             <div class="Product-row row row-cols-1 row-cols-md-4 row-cols-sm-2 g-5 justify-content-between space">
-                <% if (products && products.length) { %> <!-- Check if products exists and has items -->
+                <% if (products && products.length) { %>
                     <% products.forEach(product => { %>
                         <div class="col">
                             <div class="card shadow" style="width: 15rem; height: auto;">
                                 <img src="/src/images/<%= product.images_path %>" class="Product-Image card-img-top" alt="<%= product.product_name %>" data-bs-toggle="modal" data-bs-target="#exampleModal">   
                                 <div class="card-body">
                                     <h5 class="Product-name card-title" style="font-weight: bold;"><%= product.product_name %></h5>
-                                    <p class="Product-price card-text" style="font-size: 1.1rem; color: #ff8400;">$<%= product.price %></p>
-                                    <div class="Product-id-hidden">
-                                        <button type="button" class="btn btn-primary addToCart" data-product-id="<%= product.id %>">Add to Cart</button>
-                                    </div>
+                                    <p class="Product-price card-text" style="font-size: 1.1rem; color: #ff8400;">₱ <%= product.price %></p>
+                                    
+                                    <form id="addToCartForm" action="/cart/add" method="POST"> 
+                                        <input type="hidden" name="productId" value="<%= product.id %>"> 
+                                        <input type="hidden" name="token" value="<%= userToken %>"> 
+                                        <button type="submit" class="btn btn-primary">Add to Cart</button>    
+                                    </form>
+                                    
+                                    
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
                     <% }); %>
                 <% } else { %>
-                    <p>No products available.</p> <!-- Message if no products are found -->
+                    <p>No products available.</p>
                 <% } %>
             </div>
         </div>
     </main>
     
     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
 
     <script>
-        
+        $(document).ready(function() {
+            // Use event delegation to handle clicks on buttons
+            $(document).on('submit', '#addToCartForm', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+    
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'), // Get the action URL from the form
+                    data: $(this).serialize(), // Serialize the form data
+                    success: function(response) {
+                        // Show the success modal
+                        $('#alertSuccess').show();
+    
+                        // Hide the alert after 1.5 seconds
+                        setTimeout(function() {
+                            $('#alertSuccess').hide();
+                        }, 1500);
+                    },
+                    error: function(xhr) {
+                        // Handle any errors
+                        alert('Error adding product to cart: ' + xhr.responseText);
+                    }
+                });
+            });
+        });
     </script>
+    
+    
+    
+    
+    
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-QFgFiq+ay/VxIuxWlCtONg1aDlOHqCkT78f9S5hDoMupPbNIvO/u4czcU3IyAY6g" crossorigin="anonymous"></script>

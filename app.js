@@ -6,6 +6,7 @@ const signupRoutes = require('./routes/signupRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const productRoutes = require('./routes/productRoutes')
 const accsRoutes = require('./routes/accsRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 
 const app = express();
 const session = require('express-session');
@@ -50,6 +51,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware to parse URL-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // For parsing application/json
+
 
 // Set up routes
 app.use('/', authRoutes); // Now this correctly uses signupRoutes
@@ -57,7 +60,7 @@ app.use('/', signupRoutes);
 app.use('/', homeRoutes);
 app.use('/', productRoutes);
 app.use('/', accsRoutes);
-
+app.use('/cart', cartRoutes);
 
 
 // Error handling middleware

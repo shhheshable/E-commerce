@@ -10,11 +10,6 @@ router.get('/home', (req, res) => {
 
 router.post('/login', authController.logs); // Ensure you are using authController for login
 
-router.get('/blala', (req, res) => {
-    const userToken = req.query.token || req.session.userToken;
-    res.render('user/blala', { token: userToken }); // Pass token to the view
-});
-
 // Route to render the home page
 router.get('/', homeController.renderHomePage); // This should be the main route for home
 

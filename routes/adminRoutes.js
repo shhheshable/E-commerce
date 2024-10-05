@@ -19,6 +19,11 @@ router.get('/AdminMngProduct', (req, res) => {
     res.render('admin/AdminMngProduct', { token: userToken }); // Pass token to the view
 });
 
+router.get('/AdminMngAcc', (req, res) => {
+    const userToken = req.query.token || req.session.userToken;
+    res.render('admin/AdminMngAcc', { token: userToken }); // Pass token to the view
+});
+
 
 
 module.exports = router;

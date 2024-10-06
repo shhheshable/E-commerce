@@ -13,7 +13,7 @@ app.use('/', cartRoutes); // Using cartRoutes
 
 app.listen(8000, () => {
     console.log('Server running on http://localhost:8000');
-=======
+
 const path = require('path');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');

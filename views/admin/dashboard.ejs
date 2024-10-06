@@ -29,7 +29,7 @@
                     <i class="lni lni-grid-alt"></i>
                 </button>
                 <div class="sidebar-logo">
-                    <a href="#">Iwahig Craft Shop</a>
+                    <a href="#">Sneaker Hero</a>
                 </div>
             </div>
             <ul class="sidebar-nav">
@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link" onclick="loadPage('/AdminAccount?<%= userToken %>')">
+                    <a href="#" class="sidebar-link" onclick="loadPage('/AdminAcc?<%= userToken %>')">
                         <i class="lni lni-cog"></i>
                         <span>Account Setting</span>
                     </a>
@@ -79,10 +79,17 @@
             </ul>
 
             
-            <div class="sidebar-footer">
-                <a href="logout.php" id="Logout" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
-                    <span>Logout</span>
+            <div class="sidebar-footer ">
+
+               
+                
+                    <form method="post" action="/logout" id="logoutForm">
+                    
+                        <button type="submit" class="sidebar-link" name="logout" class="nav-link" id="Logout">
+                            <i class="lni lni-exit"></i>
+                        </button>
+                </form>
+                    
                 </a>
             </div>
         </aside>
@@ -195,7 +202,7 @@
                     <div class="row text-muted">
                         <div class="col-6 text-start">
                             <a class="text-muted" href="#">
-                                <strong>Iwahig Craft Shop</strong>
+                                <strong>Sneaker Hero</strong>
                             </a>
                         </div>
                         <div class="col-6 text-end text-muted d-none d-md-block">

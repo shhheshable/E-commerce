@@ -8,6 +8,8 @@ const productRoutes = require('./routes/productRoutes')
 const accsRoutes = require('./routes/accsRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const ordersRoutes = require('./routes/ordersRoutes');
+const adminAccRoutes = require('./routes/adminAccRoutes');
+
 
 const app = express();
 const session = require('express-session');
@@ -63,6 +65,7 @@ app.use('/', productRoutes);
 app.use('/', accsRoutes);
 app.use('/', ordersRoutes);
 app.use('/cart', cartRoutes);
+app.use('/', adminAccRoutes);
 
 
 // Error handling middleware

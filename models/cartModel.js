@@ -43,3 +43,15 @@ exports.getCartItems = (userToken, callback) => {
         callback(null, results);
     });
 };
+
+// cartModel.js
+exports.removeItem = (productId, token, callback) => {
+    // Your SQL query to remove the item from tblcart based on product ID and user token
+    const query = 'DELETE FROM tblcart WHERE product_id = ? AND user_token = ?';
+    db.query(query, [productId, token], (err, results) => {
+        if (err) {
+            return callback(err);
+        }
+        callback(null, results);
+    });
+};

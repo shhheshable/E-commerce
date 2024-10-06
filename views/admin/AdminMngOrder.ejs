@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.3.0 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- DataTables CSS v1.13.4 -->
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTables JavaScript Libraries v1.13.4 -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+
+<main>
+    <div class="container mt-5">
+        <h3 class="Header">Manage Orders</h3>
+        <table id="table" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>User ID</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Arrive At</th>
+                    <th>Total Amount</th>  
+                    <th class="Action-Header justify-content-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic Order Rows Here -->
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<!-- Approve Order Modal -->
+<div class="modal fade" id="approveOrderModal" tabindex="-1" aria-labelledby="approveOrderModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="approveOrderModalLabel">Approve Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to approve this order?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirmApproveOrder">Yes, Approve</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cancel Order Modal -->
+<div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-labelledby="cancelOrderModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cancelOrderModalLabel">Cancel Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to cancel this order?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" id="confirmCancelOrder">Yes, Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new DataTable('#table');
+
+        let selectedOrderId;
+
+        // Function to handle status update
+        function updateOrderStatus(orderId, status) {
+            $.ajax({
+                url: '', // Add your URL here
+                type: 'POST',
+                data: {
+                    action: 'update_status',
+                    order_id: orderId,
+                    status: status
+                },
+                success: function(response) {
+                    // Reload the table or update the row status directly in the DOM
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error updating order status:', error);
+                }
+            });
+        }
+
+        // Approve button click handler
+        $(document).on('click', '.approve-order', function() {
+            selectedOrderId = $(this).data('order-id');
+            $('#approveOrderModal').modal('show');
+        });
+
+        // Confirm Approve button click handler
+        $('#confirmApproveOrder').on('click', function() {
+            updateOrderStatus(selectedOrderId, 'In Transit');
+            $('#approveOrderModal').modal('hide');
+        });
+
+        // Cancel button click handler
+        $(document).on('click', '.cancel-order', function() {
+            selectedOrderId = $(this).data('order-id');
+            $('#cancelOrderModal').modal('show');
+        });
+
+        // Confirm Cancel button click handler
+        $('#confirmCancelOrder').on('click', function() {
+            updateOrderStatus(selectedOrderId, 'Returned');
+            $('#cancelOrderModal').modal('hide');
+        });
+    });
+</script>
+
+</body>
+</html>

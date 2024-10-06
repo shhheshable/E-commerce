@@ -40,3 +40,23 @@ exports.addToCart = (req, res) => {
     });
 };
 
+// Controller function to get cart items
+exports.getCartItems = (req, res) => {
+    const userToken = req.query.token || req.session.userToken; // Check for the token in query or session
+    console.log('User Token1:', userToken); // Log the token for debugging
+
+    cartModel.getCartItems(userToken, (err, cartItems) => {
+        if (err) {
+            console.error('Error fetching cart items:', err);
+            return res.status(500).json({ error: 'Server error' });
+        }
+
+        console.log('Cart Items:', cartItems); // Log the cart items
+
+        // Send the cart items and token as a JSON response
+        res.json({
+            token: userToken,
+            items: cartItems // Send cart items as 'items'
+        });
+    });
+};

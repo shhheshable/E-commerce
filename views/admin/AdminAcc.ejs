@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/adminAccDesign.css">
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="form-container">
+                    <h2 class="form-title">Admin Account Info</h2>
+                    <form>
+                        <!-- Email -->
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-4 col-form-label form-control-label">Email</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="email" placeholder="Email" value="<%= account.email %>" readonly>
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-4 col-form-label form-control-label">Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="password" placeholder="Password" value="<%= account.password %>">
+                            </div>
+                        </div>
+                        <!-- Submit Button -->
+                        <div class="form-group row">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-submit" type="button">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -7,6 +7,7 @@ const homeRoutes = require('./routes/homeRoutes');
 const productRoutes = require('./routes/productRoutes')
 const accsRoutes = require('./routes/accsRoutes');
 const cartRoutes = require('./routes/cartRoutes');
+const ordersRoutes = require('./routes/ordersRoutes');
 
 const app = express();
 const session = require('express-session');
@@ -60,6 +61,7 @@ app.use('/', signupRoutes);
 app.use('/', homeRoutes);
 app.use('/', productRoutes);
 app.use('/', accsRoutes);
+app.use('/', ordersRoutes);
 app.use('/cart', cartRoutes);
 
 

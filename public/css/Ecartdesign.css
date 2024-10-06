@@ -1,0 +1,154 @@
+body {
+    color: #333;
+}
+
+.custom-top{
+    margin: 8% auto;
+}
+.container {
+
+    
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.summary {
+    background: #002366;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.productQuantity{
+    border: none;
+}
+.btn-apply, .btn-checkout {
+    background: #00a650;
+    color: #fff;
+}
+.btn-apply:hover, .btn-checkout:hover {
+    background: #007e42;
+}
+.product-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.quantity-control {
+    display: flex;
+    align-items: center;
+}
+.quantity-control button {
+    border: none;
+    background: #f8f9fa;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.quantity-control input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.modal-content {
+    border-radius: 10px;
+    padding: 0 15%;
+    text-align: center;
+
+}
+.modal-header {
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    background-color: #E0F7FA;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px 0;
+}
+.modal-header img {
+    width: 50px;
+    height: 50px;
+}
+.modal-body {
+    padding: 20px;
+}
+.modal-body h5 {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.modal-body .amount {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+.detail-label {
+    font-weight: bold;
+    text-align: left;
+}
+.detail-value {
+    text-align: right;
+}
+.modal-footer {
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+.btn-success {
+    width: 100px;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+.header-logo {
+    height: 50px;
+}
+.banner {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+.banner img {
+    max-width: 100%;
+}
+.category-section {
+    padding: 30px 0;
+}
+.category-item {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+.trending-products {
+    padding: 30px 0;
+}
+.trending-products .card {
+    margin-bottom: 15px;
+}
+.footer-promo {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+.category-item {
+    background-size: cover;
+    background-position: center;
+    height: 200px; /* Adjust height as needed */
+    text-align: center;
+    color: #fff; /* Text color */
+    border-radius: 25px;
+}
+
+.category-item h3, .category-item a {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Other styles for text alignment */
+    color: yellow;
+    font-weight: bolder;
+}

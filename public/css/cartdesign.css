@@ -1,0 +1,473 @@
+body {
+    font-family: 'Montserrat';
+    color: white;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.table-panel {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+.table-striped thead {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background: white; /* Ensure header has a background */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    
+}
+
+:root {
+    --color-primary: #ff8400;
+    --color-logo: #309e9e;
+    --color-danger: #ff0060;
+    --color-success: #1b9c85;
+    --color-warning: #1ae7e7;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f2f2f2;
+  }
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: none;
+    background-color: #6e636307;
+    font-family: 'Montserrat';
+
+}
+
+.card {
+    border: 1px solid #cccccce1;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 250px;
+    min-width: auto;
+    
+}
+
+.carousel .btn {
+    margin: 5%;
+}
+
+
+img{
+    border-radius: 5px;
+
+}
+
+.card-img-top {
+    max-width: auto;
+    max-height: 200px;
+    min-height: 200px; /* Default height */
+}
+
+.card-title {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    overflow-wrap: break-word;
+    
+}
+
+.card-text {
+    color: #1a1616;
+    font-size: 0.9rem;
+    font-weight: 700;
+    
+}
+
+.text-body-secondary{
+    font-size: 0.7em;
+}
+
+
+
+.navbar {
+    padding: 1px 5%;
+    border-radius: 15px;
+    
+}
+
+.space {
+    margin-right: 8%;
+    margin-left: 8%;
+    display: flex;
+    
+}
+
+
+
+article {
+    margin-top: 5.6%;
+    margin-bottom: 3%;
+}
+
+.carousel-item img {
+    max-height: 500px; /* Adjust the max-height value as needed */
+    width: auto; /* Ensures the image's width adjusts proportionally */
+    border-radius: 25px;
+}
+
+.carousel-item{
+    padding: 0 10%;
+}
+
+.text-white {
+    font-size: 0.8em;
+}
+
+footer {
+    margin-top: 5%;
+}
+
+.Product-row .col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+.card {
+   width: 100%; /* Full width for small screens */
+    
+}
+.card-img-top {
+    height: auto; /* Auto height for small screens */
+    max-width: 100%; /* Max width for small screens */
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+.card-body {
+font-size: 0.8em; /* Decrease font size for small screens */
+}
+.card-title {
+font-size: small; /* Adjust font size of the title */
+}
+.card-text{
+font-size: small;
+}
+.card {
+margin-top: 30%;
+width: 100%;
+}
+.card-body {
+padding: 5px 7px;
+}
+.card-img-top {
+height: auto; /* Auto height for small screens */
+max-width: 100%; /* Max width for small screens */
+}
+.btn {
+padding: 2px;
+
+font-size: xx-small;
+}
+}
+
+.checked {
+    color: orange;
+}
+
+.scrollable-tbody {
+    display: block;
+    height: 350px; /* Adjust this height based on your preference */
+    overflow-y: auto;
+    width: 100%;
+}
+
+.table-striped tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+
+.scrollable-table {
+    max-height: 400px; /* Adjust the max-height as needed */
+    overflow: auto;
+}
+
+.custom-padding {
+    margin: 5% 9.3% 1%;
+    max-height: 350px;
+}
+
+.custom-cart {
+    margin: 1% 15%;
+    padding: 1% 5%;
+    font-size: 0.9rem;
+}
+
+.Table-panel {
+    font-size: small;
+}
+
+.table-padding {
+    padding: 5px 10px 0%;
+}
+
+.start-align {
+    text-align: start;
+}
+
+.Table-panel th:first-child,
+.Table-panel td:first-child {
+    width: 1%
+}
+
+.Table-panel th:nth-child(2),
+.Table-panel td:nth-child(2) {
+    width: 35%
+}
+
+.title {
+    font-weight: 900;
+    color: black;
+}
+
+.custom-title {
+    margin-right: 50%;
+}
+
+.custom-btn {
+    font-size: small;
+}
+
+form {
+    border-radius: 10px;
+}
+
+.checkout-payment-form  {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    min-width: 500px;
+    display: none;
+    overflow-y: auto;
+    transition: all 10s ease; /* Transition effect */
+
+}
+
+.receipt-container {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    min-width: 500px;
+    display: none;
+    overflow-y: auto;
+    transition: all 13s ease; /* Transition effect */
+} 
+
+.checkout-payment-form form {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.payment-form {
+    padding-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+}
+
+.payment-form .content {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.payment-form .block-heading {
+    text-align: center;
+}
+
+.payment-form .block-heading p {
+    text-align: center;
+    max-width: 320px;
+    margin: auto;
+    opacity: 0.7;
+}
+
+.payment-form .block-heading h1,
+.payment-form .block-heading h2,
+.payment-form .block-heading h3,
+.payment-form .block-heading h4 {
+    margin-bottom: 1rem;
+    color: #3b99e0;
+}
+
+.payment-form form {
+    border-top: 2px solid #5ea4f3;
+    border-bottom: 2px solid #5ea4f3;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+    background-color: #ffffff;
+    padding: 0;
+    max-width: 620px;
+    margin: auto;
+}
+
+.payment-form .title {
+    font-size: 0.8em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.6em;
+    font-weight: 600;
+    padding-bottom: 6px;
+}
+
+.payment-form .products {
+    padding: 15px;
+}
+
+.payment-form .products .item {
+    margin-bottom: 0.6em;
+}
+
+.item-container {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.payment-form .products .item-name {
+    font-weight: 600;
+    font-size: 0.6em;
+    opacity: 0.8;
+}
+
+.payment-form .products .item-description {
+    font-size: 0.6em;
+    opacity: 0.6;
+}
+
+.payment-form .products .item p {
+    margin-bottom: 0.2em;
+}
+
+.payment-form .products .price {
+    float: right;
+    font-weight: 600;
+    font-size: 0.7em;
+}
+
+.payment-form .products .total {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 7px;
+    padding-top: 10px;
+    font-weight: 600;
+    line-height: 1;
+    font-size: 0.8em;
+}
+
+.payment-form .card-details {
+    padding: 15px;
+}
+
+.payment-form .card-details label {
+    font-size: 10px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #79818a;
+    text-transform: uppercase;
+}
+
+.payment-form .card-details button {
+    margin-top: 0.4em;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+.payment-form .date-separator {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+}
+
+.btn-proceed .btn-cancel {
+    margin: 0 100px;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+}
+
+.horizontal-timeline .items {
+    border-top: 2px solid #ddd;
+}
+
+.horizontal-timeline .items .items-list {
+    position: relative;
+    margin-right: 0;
+}
+
+.h-custom {
+    font-size: 14px;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.small.text-muted {
+    font-size: 0.8rem;
+}
+
+.small {
+    font-size: 0.9rem;
+}
+
+.bg-light {
+    background-color: #f2f2f2 !important;
+}
+
+
+.horizontal-timeline .items .items-list:before {
+    content: "";
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #ddd;
+    top: 0;
+    margin-top: -5px;
+}
+
+.horizontal-timeline .items .items-list {
+    padding-top: 15px;
+}
+
+.blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: none;
+}

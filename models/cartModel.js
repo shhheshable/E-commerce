@@ -23,3 +23,23 @@ exports.addToCart = (userToken, productId, callback) => {
         callback(null); // Successfully added/updated cart
     });
 };
+
+
+
+exports.getCartItems = (userToken, callback) => {
+    const query = `
+        SELECT p.id AS product_id, p.product_name, p.price, p.images_path AS image_path, c.quantity
+        FROM tblcart c
+        JOIN tblproducts p ON c.product_id = p.id
+        WHERE c.user_token = ?
+    `;
+
+    db.query(query, [userToken], (err, results) => {
+        if (err) {
+            console.error('Database error:', err);
+            return callback(err);
+        }
+
+        callback(null, results);
+    });
+};
